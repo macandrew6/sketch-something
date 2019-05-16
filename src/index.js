@@ -1,9 +1,18 @@
-function component() {
-  const element = document.createElement('div');
+import '../dist/styles/drawing_pad.css';
+// import './styles/medium_selector.css';
 
-    element.innerHTML = "Hello ebpack!!!!!";
+document.addEventListener('DOMContentLoaded', () => {
+  const canvasDiv = document.getElementById('canvasDiv');
+  const canvas = document.createElement('canvas');
+  // const mediumSelector = document.getElementById('mediumSelector');
+  canvas.setAttribute('width', 800);
+  canvas.setAttribute('height', 520);
+  canvas.setAttribute('id', 'canvas');
+  canvasDiv.appendChild(canvas);
 
-  return element;
-}
+  if (typeof G_vmlCanvasManager != 'undefined') {
+    canvas = G_vmlCanvasManager.initElement(canvas);
+  }
 
-document.body.appendChild(component());
+  const ctx = canvas.getContext('2d');
+});

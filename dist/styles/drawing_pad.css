@@ -1,0 +1,20 @@
+body, html {
+  background: cornflowerblue;
+  background: url('../images/wooden-texture_1208-334.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#canvasDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#canvas {
+  background: url('../images/164077250-blackboard-wallpapers.jpg');
+  background-size: contain;
+  border: 1px solid black;
+}
