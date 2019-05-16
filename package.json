@@ -1,0 +1,25 @@
+{
+  "name": "pictionary",
+  "version": "1.0.0",
+  "description": "a drawing app with friends",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macandrew6/pictionary.git"
+  },
+  "author": "Andrew Mac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macandrew6/pictionary/issues"
+  },
+  "homepage": "https://github.com/macandrew6/pictionary#readme",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
