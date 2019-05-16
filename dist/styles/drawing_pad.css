@@ -1,8 +1,11 @@
 body, html {
-  background: cornflowerblue;
   background: url('../images/wooden-texture_1208-334.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+input {
+  z-index: 1;
 }
 
 #canvasDiv {
@@ -16,5 +19,4 @@ body, html {
 #canvas {
   background: url('../images/164077250-blackboard-wallpapers.jpg');
   background-size: contain;
-  border: 1px solid black;
 }
