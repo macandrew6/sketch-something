@@ -2,21 +2,52 @@ body, html {
   background: url('../images/wooden-texture_1208-334.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: -10px;
 }
 
-input {
-  z-index: 1;
+.app-title {
+  position: relative;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 36px;
+  padding: 15px;
+  margin: 10px 0 10px 10px;
+  transform: translateX(0);  
+  transition: transform 1s ease-in-out;
 }
 
-#canvasDiv {
+.canvas-div {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  transform: translateX(0);  
+  transition: transform 1s ease-in-out;
 }
 
 #canvas {
+  position: relative;
+  z-index: 1;
   background: url('../images/164077250-blackboard-wallpapers.jpg');
   background-size: contain;
+}
+
+.buttons-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: -3px;
+  transform: translateX(0);  
+  transition: transform 1s ease-in-out;
+}
+
+.move {
+  transform: translateX(-500px);
+}
+
+#save-button {
+  font-size: 20px;
+  padding: 20px 30px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 8px antiquewhite;
 }
