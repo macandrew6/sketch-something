@@ -9,19 +9,10 @@ class ColorSelector {
     }
     this.colorCtx = this.colorCanvas.getContext('2d');
     
+    this.getColor = this.getColor.bind(this);
     this.buildColorPalette();
-    // this.canvasColors.mousedown(function(e) {
-    //   // Track mouse movement on the canvas if the mouse button is down
-    //   $(document).mousemove(function(e) {
-    //     this.colorEventX = e.pageX - this.colorCanvas.offset().left;
-    //     this.colorEventY = e.pageY - this.colorCanvas.offset().top;
-    //     console.log(this.colorEventX);
-    //     console.log(this.colorEventY);
-    //   });
-
-    //   // Get the color at the current mouse coordinates
-    //   // window.colorTimer = setInterval(window.getColor, 50);
-    // });
+    this.colorCanvas.addEventListener('mousedown', this.startSetColor);
+    this.colorCanvas.addEventListener('mouseup', this.endSetColor);
   }
 
   buildColorPalette() {
@@ -47,6 +38,31 @@ class ColorSelector {
 
     this.colorCtx.fillStyle = gradient;
     this.colorCtx.fillRect(0, 0, this.colorCtx.canvas.width, this.colorCtx.canvas.height);
+  }
+
+  startSetColor(e) {
+    e.stopPropagation();
+    console.log(this);
+    const rect = this.getBoundingClientRect();
+    this.addEventListener('mousemove', e => {
+      this.colorEventX = e.clientX - rect.left;
+      this.colorEventY = e.clientY - rect.top;
+      console.log(this.colorEventX, this.colorEventY);
+    });
+
+    // this.colorTimer = setInterval(this.getColor, 50);
+  }
+
+  endSetColor(e) {
+    e.stopPropagation();
+    this.savedColorX = this.colorEventX;
+    this.savedColorY = this.colorEventY;
+
+    console.log("saved X Y ",this.savedColorX, this.savedColorY);
+  }
+
+  getColor() {
+
   }
 }
 
