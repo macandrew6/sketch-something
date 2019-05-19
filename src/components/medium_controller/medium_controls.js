@@ -4,35 +4,45 @@ import '../../../dist/styles/medium_selector.css';
 
 class MediumControls {
   constructor() {
-    this.drawingPad = document.getElementsByClassName('canvas-div')[0];
+    new ColorSelector();
+    new MediumSelector();
+
+    this.drawingPad = document.getElementsByClassName('canvas')[0];
     this.title = document.getElementsByClassName('app-title')[0];
     this.buttonsContainer = document.getElementsByClassName('buttons-container')[0];
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
-    this.closeButton= document.getElementById('close-controls-btn');
+    this.colorSelector = document.getElementsByClassName('color-canvas')[0];
+    this.closeButton= document.getElementsByClassName('close-controls-btn')[0];
     this.body = document.querySelector('body');
 
-    new ColorSelector();
-    new MediumSelector();
-    this.closeControls = this.closeControls.bind(this);
     this.expandControls = this.expandControls.bind(this);
+    this.closeControls = this.closeControls.bind(this);
     this.mediumControls.addEventListener('click', this.expandControls);
     this.closeButton.addEventListener('click', this.closeControls);
   }
 
   expandControls(e) {
+    e.stopPropagation();
+
     this.title.classList.add('move');
     this.drawingPad.classList.add('move');
     this.buttonsContainer.classList.add('move');
+    this.closeButton.classList.add('show');
     this.mediumControls.classList.add('expand');
+    this.colorSelector.classList.add('expand-color');
     this.body.setAttribute('style','background: rgba(0, 0, 0, 0.5)');
   }
 
   closeControls(e) {
-    console.log('im here baby');
+    e.stopPropagation();
+    
     this.title.classList.remove('move');
     this.drawingPad.classList.remove('move');
     this.buttonsContainer.classList.remove('move');
+    this.closeButton.classList.remove('show');
     this.mediumControls.classList.remove('expand');
+    this.colorSelector.classList.remove('expand-color');
+    this.body.removeAttribute('style');
   }
   
 }

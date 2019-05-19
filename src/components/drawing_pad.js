@@ -8,7 +8,7 @@ class DrawingPad {
     this.saveButton = document.getElementById('save-button');
     this.canvas.setAttribute('width', 800);
     this.canvas.setAttribute('height', 520);
-    this.canvas.setAttribute('id', 'canvas');
+    this.canvas.setAttribute('class', 'canvas');
     this.canvasDiv.appendChild(this.canvas);
 
     if (typeof window.G_vmlCanvasManager !== 'undefined') {

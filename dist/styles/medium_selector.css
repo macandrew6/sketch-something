@@ -3,23 +3,56 @@
   width: 200px;
   height: 200px;
   background-color: cornflowerblue;
-  top: 20px;
+  top: -45px;
   right: 30px;
   z-index: 0;
-  transition: 1s ease;
+  transition: 1s ease-in-out;
+}
+
+.close-controls-btn {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#color-selector-canvas-div {
+  display: flex;
+  justify-content: center;
+}
+
+.color-canvas {
+  display: none;
+  margin-top: 5px;
+  width: 170px;
+  height: 100px;
+  transition: 1s ease-in-out;
 }
 
 .expand {
   width: 550px;
   height: 535px;
-  top: 59px;
+  top: -7px;
   right: 40px;
 }
 
-#close-controls-btn {
-  position: relative;
-  top: 0;
-  right: 0;
+.expand-color {
+  display: grid;
+  margin-top: 20px;
+  width: 500px;
+  height: 200px;
+  animation: fade-in ease 1s;
+}
+
+.show {
+  display: grid;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  25% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
 }
 
 

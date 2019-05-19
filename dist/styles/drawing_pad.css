@@ -21,15 +21,15 @@ body, html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  transform: translateX(0);  
-  transition: transform 1s ease-in-out;
 }
 
-#canvas {
+.canvas {
   position: relative;
   z-index: 1;
   background: url('../images/164077250-blackboard-wallpapers.jpg');
   background-size: contain;
+  transform: translateX(0);  
+  transition: transform 1s ease-in-out;
 }
 
 .buttons-container {
