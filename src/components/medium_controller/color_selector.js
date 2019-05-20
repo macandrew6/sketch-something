@@ -3,6 +3,7 @@ class ColorSelector {
     this.colorSelectorDiv = document.getElementById('color-selector-canvas-div');
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.colorCanvas = document.createElement('canvas');
+    this.rgbValue = document.getElementById('rgb-value');
     this.colorCanvas.setAttribute('width', 460);
     this.colorCanvas.setAttribute('height', 200);
     this.colorCanvas.setAttribute('class', 'color-canvas');
@@ -68,9 +69,9 @@ class ColorSelector {
     let pixel = this.colorCtx.getImageData(x, y, 1, 1);
     window.rgb = 'rgb(' + pixel.data[0] + ', ' + pixel.data[1] +
       ', ' + pixel.data[2] + ')';
-      console.log(this.mediumControls);
-    this.mediumControls.setAttribute('style', `box-shadow: 0px 0px 20px 30px ${window.rgb} inset;`);
-    // this.mediumControls.textContent = window.rgb;
+    this.mediumControls.setAttribute('style', `box-shadow: 0px 0px 30px 10px ${window.rgb} inset;`);
+    this.rgbValue.style.background = window.rgb;
+    this.rgbValue.textContent = window.rgb;
   }
 }
 

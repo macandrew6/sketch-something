@@ -5,14 +5,17 @@ import '../../../dist/styles/medium_selector.css';
 class MediumControls {
   constructor() {
     this.colorSelector = new ColorSelector();
-    // this.mediumSelector = new MediumSelector();
+    this.mediumSelector = new MediumSelector();
 
     this.drawingPad = document.getElementsByClassName('canvas')[0];
     this.title = document.getElementsByClassName('app-title')[0];
     this.buttonsContainer = document.getElementsByClassName('buttons-container')[0];
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
+    this.customMediaCanvas = document.getElementsByClassName('custom-medium-canvas')[0];
+    this.mediumSizeControls = document.getElementsByClassName("medium-size-btn-container")[0];
     this.colorSelector = document.getElementsByClassName('color-canvas')[0];
-    this.closeButton= document.getElementsByClassName('close-controls-btn')[0];
+    this.closeButton = document.getElementsByClassName('close-controls-btn')[0];
+    this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.body = document.querySelector('body');
 
     this.expandControls = this.expandControls.bind(this);
@@ -27,7 +30,10 @@ class MediumControls {
     this.title.classList.add('move');
     this.drawingPad.classList.add('move');
     this.buttonsContainer.classList.add('move');
+    this.customMediaCanvas.classList.add('show');
     this.closeButton.classList.add('show');
+    this.fileChooser.classList.add('show');
+    this.mediumSizeControls.classList.add('show');
     this.mediumControls.classList.add('expand');
     this.colorSelector.classList.add('expand-color');
     this.body.setAttribute('style','background: rgba(0, 0, 0, 0.5)');
@@ -39,7 +45,10 @@ class MediumControls {
     this.title.classList.remove('move');
     this.drawingPad.classList.remove('move');
     this.buttonsContainer.classList.remove('move');
+    this.customMediaCanvas.classList.remove('show');
     this.closeButton.classList.remove('show');
+    this.fileChooser.classList.remove('show');
+    this.mediumSizeControls.classList.remove('show');
     this.mediumControls.classList.remove('expand');
     this.colorSelector.classList.remove('expand-color');
     this.body.removeAttribute('style');

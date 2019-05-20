@@ -1,20 +1,54 @@
 .medium-controls-container {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 20px;
+  color: white;
   width: 200px;
   height: 200px;
-  background-color: rgba(0, 0, 0, 0.383);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
   top: -45px;
   right: 30px;
   z-index: 0;
   transition: 1s ease-in-out;
 }
 
+.medium-controls-container > h2 {
+  position: relative;
+  text-align: center;
+}
+
+#custom-medium {
+  cursor: alias;
+  text-shadow: 2px 2px 30px white;
+}
+
 .close-controls-btn {
+  margin-top: 15px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 20px;
+  color: white;
+  background: none;
+  border: none;
   display: none;
   position: absolute;
+  line-height: 0;
   top: 5px;
   right: 5px;
+  transition: 1s ease-in-out;
 }
+
+
+.close-controls-btn:hover {
+  font-size: 40px;
+  text-shadow: 2px 2px 20px white;
+}
+
+/* color selector */
 
 #color-selector-canvas-div {
   display: flex;
@@ -23,10 +57,71 @@
 
 .color-canvas {
   display: none;
-  margin-top: 40px;
+  margin-top: 27px;
   width: 460px;
   height: 200px;
   transition: 1s ease-in-out;
+}
+
+#rgb-value {
+  font-family: 'Stylish', sans-serif;
+  text-align: center;
+}
+
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  25% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* medium selector */
+
+.file-chooser {
+  display: none;
+  background: none;
+  color: white;
+}
+
+.file-chooser.show {
+  margin-left: 46px;
+}
+
+#custom-medium-selector-canvas-div {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-medium-canvas {
+  width: 400px;
+  height: 100px;
+  background: grey;
+  display: none;
+}
+
+.medium-size-btn-container {
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.medium-size-btn-container > button {
+  font-size: 12px;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background: #fcf4eb;
+  box-shadow: 0 6px #999;
+}
+.medium-size-btn-container > button:hover {background-color: #fcf4eb}
+
+.medium-size-btn-container > button:active {
+  background-color: #b9b9b9;
+  box-shadow: 0 3.3px rgb(65, 64, 64);
+  transform: translateY(4px);
 }
 
 .expand {
@@ -42,14 +137,5 @@
 }
 
 .show {
-  display: grid;
+  display: flex;
 }
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  25% { opacity: 0.3; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-

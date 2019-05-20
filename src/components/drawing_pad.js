@@ -1,4 +1,3 @@
-import MediumControls from './medium_controller/medium_controls';
 import '../../dist/styles/drawing_pad.css';
 
 class DrawingPad {
@@ -7,6 +6,7 @@ class DrawingPad {
     this.canvasDiv = document.getElementsByClassName('canvas-div')[0];
     this.canvas = document.createElement('canvas');
     this.saveButton = document.getElementById('save-button');
+    this.clearButton = document.getElementById('clear-button');
     this.canvas.setAttribute('width', 800);
     this.canvas.setAttribute('height', 520);
     this.canvas.setAttribute('class', 'canvas');
@@ -17,10 +17,18 @@ class DrawingPad {
     }
     // ends here
     this.ctx = this.canvas.getContext('2d');
-    
+    // this.savedMoves = []; ment for implementing undo... must be a better way.
+
+
     const background = new Image();
     background.onload = () => {
-      this.ctx.drawImage(background, 0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.drawImage(
+        background, 
+        0, 
+        0, 
+        this.canvas.width, 
+        this.canvas.height
+      );
     };
     background.src = '/dist/images/164077250-blackboard-wallpapers.jpg';
 
@@ -29,10 +37,12 @@ class DrawingPad {
     this.endPosition = this.endPosition.bind(this);
     this.draw = this.draw.bind(this);
     this.save = this.save.bind(this);
+    this.clearCanvas = this.clearCanvas.bind(this);
     this.canvas.addEventListener("mousedown", this.startPosition);
     this.canvas.addEventListener("mouseup", this.endPosition);
     this.canvas.addEventListener("mousemove", this.draw);
     this.saveButton.addEventListener('click', this.save);
+    this.clearButton.addEventListener('click', this.clearCanvas);
   }
 
   startPosition(e) {
@@ -45,12 +55,22 @@ class DrawingPad {
     this.ctx.beginPath();
   }
 
+  clearCanvas(e) {
+    this.ctx.clearRect(
+      0, 
+      0, 
+      this.ctx.canvas.width, 
+      this.ctx.canvas.height
+    );
+  }
+
   draw(e) {
     if (!this.painting) return;
-    this.ctx.lineWidth = 3;
-    this.ctx.strokeStyle = '#F5F6F5';
+    this.ctx.lineWidth = window.mediumSize;
+    this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';
-
+    // this.savedMoves.push([e.offsetX, e.offsetY]);
+    // console.log(this.savedMoves);
     this.ctx.lineTo(e.offsetX, e.offsetY);
     this.ctx.stroke();
     this.ctx.beginPath();
