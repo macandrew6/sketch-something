@@ -1,22 +1,29 @@
 class ColorSelector {
   constructor() {
     this.colorSelectorDiv = document.getElementById('color-selector-canvas-div');
+    this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.colorCanvas = document.createElement('canvas');
+    this.colorCanvas.setAttribute('width', 460);
+    this.colorCanvas.setAttribute('height', 200);
     this.colorCanvas.setAttribute('class', 'color-canvas');
     this.colorSelectorDiv.appendChild(this.colorCanvas);
     if (typeof window.G_vmlCanvasManager !== 'undefined') {
       this.colorCanvas = window.G_vmlCanvasManager.initElement(this.colorCanvas);
     }
     this.colorCtx = this.colorCanvas.getContext('2d');
-    
-    this.getColor = this.getColor.bind(this);
+    this.picking = false;
+
     this.buildColorPalette();
-    this.colorCanvas.addEventListener('mousedown', this.startSetColor);
-    this.colorCanvas.addEventListener('mouseup', this.endSetColor);
+    this.startColorCoords = this.startColorCoords.bind(this);
+    this.endColorCoords = this.endColorCoords.bind(this);
+    this.colorPick = this.colorPick.bind(this);
+    this.colorCanvas.addEventListener('mousedown', this.startColorCoords);
+    this.colorCanvas.addEventListener('mouseup', this.endColorCoords);
+    this.colorCanvas.addEventListener('mousemove', this.colorPick);
   }
 
   buildColorPalette() {
-    let gradient = this.colorCtx.createLinearGradient(20, 0, this.colorCanvas.width, 0);
+    let gradient = this.colorCtx.createLinearGradient(0, 0, this.colorCanvas.width, 0);
 
     gradient.addColorStop(0, "rgb(255,   0,   0)");
     gradient.addColorStop(0.15, "rgb(255,   0, 255)");
@@ -40,29 +47,30 @@ class ColorSelector {
     this.colorCtx.fillRect(0, 0, this.colorCtx.canvas.width, this.colorCtx.canvas.height);
   }
 
-  startSetColor(e) {
+  startColorCoords(e) {
     e.stopPropagation();
-    console.log(this);
-    const rect = this.getBoundingClientRect();
-    this.addEventListener('mousemove', e => {
-      this.colorEventX = e.clientX - rect.left;
-      this.colorEventY = e.clientY - rect.top;
-      console.log(this.colorEventX, this.colorEventY);
-    });
-
-    // this.colorTimer = setInterval(this.getColor, 50);
+    e.preventDefault();
+    this.colorEventX = e.layerX;
+    this.colorEventY = e.layerY;
+    this.picking = true;
   }
 
-  endSetColor(e) {
+  endColorCoords(e) {
     e.stopPropagation();
-    this.savedColorX = this.colorEventX;
-    this.savedColorY = this.colorEventY;
-
-    console.log("saved X Y ",this.savedColorX, this.savedColorY);
+    e.preventDefault();
+    this.picking = false;
   }
 
-  getColor() {
-
+  colorPick(e) {
+    if (!this.picking) return;
+    let x = event.layerX;
+    let y = event.layerY;
+    let pixel = this.colorCtx.getImageData(x, y, 1, 1);
+    window.rgb = 'rgb(' + pixel.data[0] + ', ' + pixel.data[1] +
+      ', ' + pixel.data[2] + ')';
+      console.log(this.mediumControls);
+    this.mediumControls.setAttribute('style', `box-shadow: 0px 0px 20px 30px ${window.rgb} inset;`);
+    // this.mediumControls.textContent = window.rgb;
   }
 }
 

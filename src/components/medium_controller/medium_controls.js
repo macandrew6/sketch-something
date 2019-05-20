@@ -4,8 +4,8 @@ import '../../../dist/styles/medium_selector.css';
 
 class MediumControls {
   constructor() {
-    new ColorSelector();
-    new MediumSelector();
+    this.colorSelector = new ColorSelector();
+    // this.mediumSelector = new MediumSelector();
 
     this.drawingPad = document.getElementsByClassName('canvas')[0];
     this.title = document.getElementsByClassName('app-title')[0];

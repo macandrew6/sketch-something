@@ -1,3 +1,4 @@
+import MediumControls from './medium_controller/medium_controls';
 import '../../dist/styles/drawing_pad.css';
 
 class DrawingPad {
@@ -24,9 +25,9 @@ class DrawingPad {
     background.src = '/dist/images/164077250-blackboard-wallpapers.jpg';
 
     this.painting = false;
-    this.draw = this.draw.bind(this);
     this.startPosition = this.startPosition.bind(this);
     this.endPosition = this.endPosition.bind(this);
+    this.draw = this.draw.bind(this);
     this.save = this.save.bind(this);
     this.canvas.addEventListener("mousedown", this.startPosition);
     this.canvas.addEventListener("mouseup", this.endPosition);
@@ -45,16 +46,15 @@ class DrawingPad {
   }
 
   draw(e) {
-    const rect = this.canvas.getBoundingClientRect();
     if (!this.painting) return;
     this.ctx.lineWidth = 3;
     this.ctx.strokeStyle = '#F5F6F5';
     this.ctx.lineCap = 'round';
 
-    this.ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+    this.ctx.lineTo(e.offsetX, e.offsetY);
     this.ctx.stroke();
     this.ctx.beginPath();
-    this.ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    this.ctx.moveTo(e.offsetX, e.offsetY);
   }
 
   save(e) {
