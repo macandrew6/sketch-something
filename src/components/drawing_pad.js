@@ -2,7 +2,7 @@ import '../../dist/styles/drawing_pad.css';
 
 class DrawingPad {
   constructor() {
-    // making it compatible for IE lol!
+    // making it compatible for IE!
     this.canvasDiv = document.getElementsByClassName('canvas-div')[0];
     this.canvas = document.createElement('canvas');
     this.saveButton = document.getElementById('save-button');
