@@ -4,6 +4,7 @@
   "description": "a drawing app with friends",
   "main": "index.js",
   "scripts": {
+    "webpack": "webpack --watch",
     "start": "node server.js",
     "heroku-postbuild": "webpack -p"
   },

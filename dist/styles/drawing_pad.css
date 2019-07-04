@@ -11,7 +11,7 @@ body, html {
   text-shadow: 1px 1px 5px antiquewhite;
   font-size: 36px;
   padding: 15px;
-  margin: 25px 0 33px 10px;
+  margin: 25px 0 70px 10px;
   transform: translateX(0);  
   transition: transform 1s ease-in-out;
 }
@@ -29,16 +29,17 @@ body, html {
   z-index: 1;
   background: url('../images/164077250-blackboard-wallpapers.jpg');
   background-size: contain;
-  box-shadow: 0px 0px 10px 2px whitesmoke;
-  transform: translateX(0);  
+  transform: translateX(0); 
   transition: 1s ease-in-out;
 }
 
 .buttons-container {
-  position: relative;
+  position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  top: -3px;
+  align-items: center;
+  right: 10px;
   transform: translateX(0);  
   transition: transform 1s ease-in-out;
 }
@@ -51,7 +52,7 @@ body, html {
 .buttons-container > button {
   margin: 0 5px 0 5px;
   font-size: 20px;
-  padding: 20px 30px;
+  padding: 20px 20px;
   border-radius: 4px;
   box-shadow: 5px 5px 8px antiquewhite;
 }

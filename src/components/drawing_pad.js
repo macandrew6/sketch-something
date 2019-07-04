@@ -7,8 +7,8 @@ class DrawingPad {
     this.canvas = document.createElement('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');
-    this.canvas.setAttribute('width', 800);
-    this.canvas.setAttribute('height', 520);
+    this.canvas.setAttribute('width', 1100);
+    this.canvas.setAttribute('height', 600);
     this.canvas.setAttribute('class', 'canvas');
     this.canvasDiv.appendChild(this.canvas);
 
@@ -17,8 +17,6 @@ class DrawingPad {
     }
     // ends here
     this.ctx = this.canvas.getContext('2d');
-    // this.savedMoves = []; ment for implementing undo... must be a better way.
-
 
     const background = new Image();
     background.onload = () => {
@@ -69,8 +67,6 @@ class DrawingPad {
     this.ctx.lineWidth = window.mediumSize;
     this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';
-    // this.savedMoves.push([e.offsetX, e.offsetY]);
-    // console.log(this.savedMoves);
     this.ctx.lineTo(e.offsetX, e.offsetY);
     this.ctx.stroke();
     this.ctx.beginPath();
