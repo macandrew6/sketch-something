@@ -3,19 +3,12 @@ import '../../dist/styles/drawing_pad.css';
 class DrawingPad {
   constructor() {
     // making it compatible for IE!
-    this.canvasDiv = document.getElementsByClassName('canvas-div')[0];
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');
-    this.canvas.setAttribute('width', 1100);
-    this.canvas.setAttribute('height', 600);
-    this.canvas.setAttribute('class', 'canvas');
-    this.canvasDiv.appendChild(this.canvas);
+    this.canvas.setAttribute('width', 500);
+    this.canvas.setAttribute('height', 100);
 
-    if (typeof window.G_vmlCanvasManager !== 'undefined') {
-      this.canvas = window.G_vmlCanvasManager.initElement(this.canvas);
-    }
-    // ends here
     this.ctx = this.canvas.getContext('2d');
 
     const background = new Image();

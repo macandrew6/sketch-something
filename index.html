@@ -13,27 +13,31 @@
 </head>
 <body>
   <div class="app-title">Draw that thing</div>
-  <div class="canvas-div">
-    <div class="medium-controls-container">
-      <h2>Color :</h2>
-        <div id="color-selector-canvas-div"></div>
-        <div id="rgb-value"></div>
-      <h2>Medium :</h2>
-        <input type="file" class="file-chooser" accept="image/jpeg, image/png, image/jpg">
-        <div id="custom-medium-selector-canvas-div"></div>
-      <h2>Medium Size :</h2>
-        <div class="medium-size-btn-container">
-          <button id="small" value="small">Small</button>
-          <button id="medium" value="medium">Medium</button>
-          <button id="large" value="large">Large</button>
-          <button id="x-large" value="x-large">XL</button>
-        </div>
-      <button class="close-controls-btn">X</button>
-    </div>
-    <div class="buttons-container">
-      <button id="save-button">Save</button>
-      <button id="clear-button">Clear</button>
-    </div>
+  <div class="canvas-container">
+
+    <canvas id="canvas">
+      <div class="medium-controls-container">
+        <h2>Color :</h2>
+          <div id="color-selector-canvas-div"></div>
+          <div id="rgb-value"></div>
+        <h2>Medium :</h2>
+          <input type="file" class="file-chooser" accept="image/jpeg, image/png, image/jpg">
+          <div id="custom-medium-selector-canvas-div"></div>
+        <h2>Medium Size :</h2>
+          <div class="medium-size-btn-container">
+            <button id="small" value="small">Small</button>
+            <button id="medium" value="medium">Medium</button>
+            <button id="large" value="large">Large</button>
+            <button id="x-large" value="x-large">XL</button>
+          </div>
+        <button class="close-controls-btn">X</button>
+      </div>
+      <div class="buttons-container">
+        <button id="save-button">Save</button>
+        <button id="clear-button">Clear</button>
+      </div>
+    </canvas>
+
   </div>
   <script src="./dist/bundle.js"></script>
 </body>

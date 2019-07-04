@@ -11,7 +11,7 @@
   height: 200px;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.6);
-  top: -100px;
+  top: -50px;
   z-index: 0;
   transition: 1s ease-in-out;
 }

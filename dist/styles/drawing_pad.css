@@ -16,16 +16,11 @@ body, html {
   transition: transform 1s ease-in-out;
 }
 
-.canvas-div {
+#canvas {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-}
-
-.canvas {
-  position: relative;
   z-index: 1;
   background: url('../images/164077250-blackboard-wallpapers.jpg');
   background-size: contain;
