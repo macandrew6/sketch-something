@@ -6,8 +6,8 @@ class DrawingPad {
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');
-    this.canvas.setAttribute('width', 500);
-    this.canvas.setAttribute('height', 100);
+    this.canvas.setAttribute('width', 600);
+    this.canvas.setAttribute('height', 400);
 
     this.ctx = this.canvas.getContext('2d');
 

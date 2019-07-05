@@ -16,8 +16,16 @@ body, html {
   transition: transform 1s ease-in-out;
 }
 
+.canvas-container {
+  display: grid;
+  grid-template: "a a a"
+  "b c d";
+  grid-template-columns: 1fr auto 1fr;
+}
+
 #canvas {
   position: relative;
+  grid-area: c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +37,8 @@ body, html {
 }
 
 .buttons-container {
-  position: absolute;
+  position: relative;
+  grid-area: d;
   display: flex;
   flex-direction: column;
   justify-content: center;
