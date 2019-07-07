@@ -18,14 +18,14 @@ body, html {
 
 .canvas-container {
   display: grid;
-  grid-template: "a a a"
-  "b c d";
+  grid-template: "a b c"
+  "e f g";
   grid-template-columns: 1fr auto 1fr;
 }
 
 #canvas {
   position: relative;
-  grid-area: c;
+  grid-area: f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ body, html {
 
 .buttons-container {
   position: relative;
-  grid-area: d;
+  grid-area: g;
   display: flex;
   flex-direction: column;
   justify-content: center;
