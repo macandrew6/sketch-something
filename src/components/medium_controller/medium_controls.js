@@ -7,9 +7,6 @@ class MediumControls {
     this.colorSelector = new ColorSelector();
     this.mediumSelector = new MediumSelector();
 
-    this.drawingPad = document.getElementsByClassName('canvas')[0];
-    this.title = document.getElementsByClassName('app-title')[0];
-    this.buttonsContainer = document.getElementsByClassName('buttons-container')[0];
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.customMediaCanvas = document.getElementsByClassName('custom-medium-canvas')[0];
     this.mediumSizeControls = document.getElementsByClassName("medium-size-btn-container")[0];
@@ -27,9 +24,6 @@ class MediumControls {
   expandControls(e) {
     e.stopPropagation();
 
-    this.title.classList.add('move');
-    this.drawingPad.classList.add('move');
-    this.buttonsContainer.classList.add('move');
     this.customMediaCanvas.classList.add('show');
     this.closeButton.classList.add('show');
     this.fileChooser.classList.add('show');
@@ -42,9 +36,6 @@ class MediumControls {
   closeControls(e) {
     e.stopPropagation();
     
-    this.title.classList.remove('move');
-    this.drawingPad.classList.remove('move');
-    this.buttonsContainer.classList.remove('move');
     this.customMediaCanvas.classList.remove('show');
     this.closeButton.classList.remove('show');
     this.fileChooser.classList.remove('show');
