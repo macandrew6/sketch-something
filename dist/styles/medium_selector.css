@@ -1,16 +1,22 @@
+.medium {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .medium-controls-container {
   position: relative;
   grid-area: b;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   align-content: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   color: white;
-  top: 20px;
   width: 1200px;
   height: 100px;
-  border-radius: 15px;
+  border-radius: 5px 5px 0 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
   transition: 1s ease-in-out;
@@ -41,10 +47,7 @@
   text-shadow: 2px 2px 20px white;
 }
 
-#custom-medium {
-  cursor: alias;
-  text-shadow: 2px 2px 30px white;
-}
+/*color selector*/
 
 #color-selector-canvas-div {
   display: flex;
@@ -53,10 +56,14 @@
 
 .color-canvas {
   display: none;
-  margin-top: 27px;
   width: 460px;
   height: 200px;
   transition: 1s ease-in-out;
+}
+
+#custom-medium {
+  cursor: alias;
+  text-shadow: 2px 2px 30px white;
 }
 
 #rgb-value {
@@ -72,7 +79,7 @@
   100% { opacity: 1; }
 }
 
-/* medium selector */
+/* custom medium selector */
 
 .file-chooser {
   display: none;
@@ -82,6 +89,7 @@
 
 .file-chooser.show {
   margin-left: 46px;
+  width: 30%;
 }
 
 #custom-medium-selector-canvas-div {
@@ -95,6 +103,8 @@
   background: grey;
   display: none;
 }
+
+/* medium size */
 
 .medium-size-btn-container {
   display: none;
@@ -112,13 +122,17 @@
   background: #fcf4eb;
   box-shadow: 0 6px #999;
 }
-.medium-size-btn-container > button:hover {background-color: #fcf4eb}
+.medium-size-btn-container > button:hover {
+  background-color: #fcf4eb
+}
 
 .medium-size-btn-container > button:active {
   background-color: #b9b9b9;
   box-shadow: 0 3.3px rgb(65, 64, 64);
   transform: translateY(4px);
 }
+
+/* transitions */
 
 .expand {
   width: 1200px;
@@ -128,10 +142,10 @@
 }
 
 .expand-color {
-  display: grid;
+  display: flex;
   /* animation: fade-in ease 1s; */
 }
 
 .show {
-  display: grid;
+  display: flex;
 }

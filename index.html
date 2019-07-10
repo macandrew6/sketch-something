@@ -16,19 +16,31 @@
     <div class="canvas-container">
       <div class="medium-controls-container">
         Medium Selector:
-        <h2>Color :</h2>
+        <!-- <h2>Color :</h2> -->
+        <div class="medium">
+          <h3>Color</h3>
           <div id="color-selector-canvas-div"></div>
           <div id="rgb-value"></div>
-        <h2>Medium :</h2>
+        </div>
+
+        <!-- <h2>Medium :</h2> -->
+        <div class="medium">
+          <h3>Custom Medium</h3>
           <input type="file" class="file-chooser" accept="image/jpeg, image/png, image/jpg">
           <div id="custom-medium-selector-canvas-div"></div>
-        <h2>Medium Size :</h2>
+        </div>
+
+        <!-- <h2>Medium Size :</h2> -->
+        <div class="medium">
+          <h3>Size</h3>
           <div class="medium-size-btn-container">
             <button id="small" value="small">Small</button>
             <button id="medium" value="medium">Medium</button>
             <button id="large" value="large">Large</button>
             <button id="x-large" value="x-large">XL</button>
           </div>
+        </div>
+
         <button class="close-controls-btn">X</button>
       </div>
       <canvas id="canvas">
