@@ -1,4 +1,7 @@
 ## Chalkboard-Pictionary
+
+Link to [Live Site](https://draw-that-thing.herokuapp.com/#/)
+
 * Background and Overview
     * Motivation for project
         * Clever display of front-end chops
