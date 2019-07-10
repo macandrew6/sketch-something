@@ -49,7 +49,6 @@ body, html {
 
 .move {
   box-shadow: none;
-  transform: translateX(-400px);
 }
 
 .buttons-container > button {
