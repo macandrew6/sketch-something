@@ -14,6 +14,7 @@ class MediumControls {
     this.closeButton = document.getElementsByClassName('close-controls-btn')[0];
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.medium = document.getElementsByClassName('medium');
+    this.mediumTitle = document.getElementsByClassName('medium-title')[0];
     this.body = document.querySelector('body');
 
     this.expandControls = this.expandControls.bind(this);
@@ -29,8 +30,8 @@ class MediumControls {
     for (let i = 0; i < this.medium.length; i++) {
       this.medium[i].classList.add('show');
     }
+    this.mediumTitle.classList.add('hide');
     this.mediumControls.classList.add('expand');
-    this.colorSelector.classList.add('expand-color');
     this.body.setAttribute('style','background: rgba(0, 0, 0, 0.5)');
   }
 
@@ -41,20 +42,11 @@ class MediumControls {
     for (let i = 0; i < this.medium.length; i++) {
       this.medium[i].classList.remove('show');
     }
+    this.mediumTitle.classList.remove('hide');
     this.mediumControls.classList.remove('expand');
-    this.colorSelector.classList.remove('expand-color');
     this.body.removeAttribute('style');
   }
 
-  // openControls() {
-  //   let someVar = document.getElementById("div");
-  //   if (someVar.style.display === "none") {
-  //     someVar.style.display = "block";
-  //   } else {
-  //     someVar.style.display = "none";
-  //   }
-  // }
-  
 }
 
 export default MediumControls;

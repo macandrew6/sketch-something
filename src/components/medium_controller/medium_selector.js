@@ -29,7 +29,9 @@ class MediumSelector {
 
   handleSizeChange(e) {
     e.preventDefault();
-    if (e.target.value === 'small') {
+    if (e.target.value === 'x-small'){
+      window.mediumSize = 1;
+    } else if (e.target.value === 'small') {
       window.mediumSize = 3;
     } else if (e.target.value === 'medium') {
       window.mediumSize = 7;
