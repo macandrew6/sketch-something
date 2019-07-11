@@ -1,16 +1,8 @@
 class ColorSelector {
   constructor() {
-    this.colorSelectorDiv = document.getElementById('color-selector-canvas-div');
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
-    this.colorCanvas = document.createElement('canvas');
     this.rgbValue = document.getElementById('rgb-value');
-    this.colorCanvas.setAttribute('width', 460);
-    this.colorCanvas.setAttribute('height', 200);
-    this.colorCanvas.setAttribute('class', 'color-canvas');
-    this.colorSelectorDiv.appendChild(this.colorCanvas);
-    if (typeof window.G_vmlCanvasManager !== 'undefined') {
-      this.colorCanvas = window.G_vmlCanvasManager.initElement(this.colorCanvas);
-    }
+    this.colorCanvas = document.getElementById('color-selector-canvas-div');
     this.colorCtx = this.colorCanvas.getContext('2d');
     this.picking = false;
 
