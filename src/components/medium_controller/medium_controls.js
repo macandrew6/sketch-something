@@ -13,6 +13,7 @@ class MediumControls {
     this.colorSelector = document.getElementsByClassName('color-canvas')[0];
     this.closeButton = document.getElementsByClassName('close-controls-btn')[0];
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
+    this.medium = document.getElementsByClassName('medium');
     this.body = document.querySelector('body');
 
     this.expandControls = this.expandControls.bind(this);
@@ -24,10 +25,10 @@ class MediumControls {
   expandControls(e) {
     e.stopPropagation();
 
-    this.customMediaCanvas.classList.add('show');
     this.closeButton.classList.add('show');
-    this.fileChooser.classList.add('show');
-    this.mediumSizeControls.classList.add('show');
+    for (let i = 0; i < this.medium.length; i++) {
+      this.medium[i].classList.add('show');
+    }
     this.mediumControls.classList.add('expand');
     this.colorSelector.classList.add('expand-color');
     this.body.setAttribute('style','background: rgba(0, 0, 0, 0.5)');
@@ -36,14 +37,23 @@ class MediumControls {
   closeControls(e) {
     e.stopPropagation();
     
-    this.customMediaCanvas.classList.remove('show');
     this.closeButton.classList.remove('show');
-    this.fileChooser.classList.remove('show');
-    this.mediumSizeControls.classList.remove('show');
+    for (let i = 0; i < this.medium.length; i++) {
+      this.medium[i].classList.remove('show');
+    }
     this.mediumControls.classList.remove('expand');
     this.colorSelector.classList.remove('expand-color');
     this.body.removeAttribute('style');
   }
+
+  // openControls() {
+  //   let someVar = document.getElementById("div");
+  //   if (someVar.style.display === "none") {
+  //     someVar.style.display = "block";
+  //   } else {
+  //     someVar.style.display = "none";
+  //   }
+  // }
   
 }
 
