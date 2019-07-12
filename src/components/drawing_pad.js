@@ -2,14 +2,19 @@ import '../../dist/styles/drawing_pad.css';
 
 class DrawingPad {
   constructor() {
-    // making it compatible for IE!
+    //include access to medium selector
+
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');
+    this.currentBrush = document.getElementById('current-brush-canvas');
     this.canvas.setAttribute('width', 1200);
     this.canvas.setAttribute('height', 800);
+    this.currentBrush.setAttribute('width', 60);
+    this.currentBrush.setAttribute('height', 60);
 
     this.ctx = this.canvas.getContext('2d');
+    this.currBrushCtx = this.currentBrush.getContext('2d');
 
     const background = new Image();
     background.onload = () => {
@@ -57,6 +62,8 @@ class DrawingPad {
 
   draw(e) {
     if (!this.painting) return;
+    // have a canvas drawImage method here:
+    // have the image object created by the medium selector
     this.ctx.lineWidth = window.mediumSize;
     this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';

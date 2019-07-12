@@ -14,10 +14,13 @@
 <body>
   <div class="app-title">Draw that thing</div>
     <div class="canvas-container">
-      <canvas id="current-brush-canvas"></canvas>
-
+      
       <div class="medium-controls-container">
-        <h2 class="medium-title">Medium Selector:</h2>
+        <h2 class="medium-title">Select Your Medium :</h2>
+        <div class="current-brush-container">
+          <h3 class="medium-header">Current Brush</h3>
+          <canvas id="current-brush-canvas"></canvas>
+        </div>
         <div class="medium">
           <h3 class="medium-header">Color</h3>
           <canvas id="color-selector-canvas-div"></canvas>
@@ -42,7 +45,7 @@
 
         <button class="close-controls-btn">X</button>
       </div>
-      
+
       <canvas id="canvas">
       </canvas>
         

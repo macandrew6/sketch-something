@@ -8,12 +8,27 @@
   padding: 40px 10px 0 10px;
   font-size: 30px;
   color: white;
+  cursor: pointer;
   width: 1180px;
   height: 100px;
   border-radius: 5px 5px 0 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
   transition: .2s ease-in-out;
+}
+
+.medium-controls-container:hover {
+
+}
+
+.current-brush-container {
+  font-size: 15px;
+}
+
+#current-brush-canvas {
+  background: white;
+  width: 60px;
+  height: 60px;
 }
 
 .medium {
@@ -86,7 +101,7 @@
   display: flex;
   background: none;
   color: white;
-  width: 40%;
+  width: 70%;
 }
 
 #custom-medium-selector-canvas-div {

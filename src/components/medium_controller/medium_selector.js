@@ -1,5 +1,8 @@
 class MediumSelector {
   constructor() {
+    // have a value for custom medium
+    // this.currentMedium = new Image();
+
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.smallMedium = document.getElementById('small');
     this.mediumMedium = document.getElementById('medium');
@@ -16,6 +19,7 @@ class MediumSelector {
       this.customMediumCanvas = window.G_vmlCanvasManager.initElement(this.customMediumCanvas);
     }
     this.customMediumCtx = this.customMediumCanvas.getContext('2d');
+
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
@@ -53,18 +57,18 @@ class MediumSelector {
     window.URL = window.URL || window.webkitURL;
 
     let imageURL = window.URL.createObjectURL(file);
-
-    this.loadAndDrawImage(imageURL);
+    
+    this.loadAndDrawImage(imageURL)();
   }
 
   loadAndDrawImage(imageURL) {
     return e => {
-      e.stopPropagation();
+      // e.stopPropagation();
       const newMedium = new Image();
       newMedium.src = imageURL;
       newMedium.onload = () => {
         this.customMediumCtx.drawImage(
-          imageURL,
+          newMedium,
           0, 
           0, 
           50,
