@@ -62,6 +62,7 @@ class DrawingPad {
 
   draw(e) {
     if (!this.painting) return;
+    // have a conditional regulating if custom medium was selected run this block of code
     // have a canvas drawImage method here:
     // have the image object created by the medium selector
     this.ctx.lineWidth = window.mediumSize;
