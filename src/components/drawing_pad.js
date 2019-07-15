@@ -1,8 +1,10 @@
 import '../../dist/styles/drawing_pad.css';
+import MediumSelector from './medium_controller/medium_selector';
 
 class DrawingPad {
   constructor() {
     //include access to medium selector
+    // new MediumSelector(); 
 
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
