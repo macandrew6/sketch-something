@@ -8,16 +8,11 @@ class MediumSelector {
     this.mediumMedium = document.getElementById('medium');
     this.largeMedium = document.getElementById('large');
     this.xlargeMedium = document.getElementById('x-large');
-    this.customMediaSelectorDiv = document.getElementById('custom-medium-selector-canvas-div');
-    this.customMediumCanvas = document.createElement('canvas');
+    this.customMediumCanvas = document.getElementById('custom-medium-selector-canvas');
     this.customMediumCanvas.setAttribute('width', 500);
     this.customMediumCanvas.setAttribute('height', 200);
     // this.customMediumCanvas.setAttribute('style', 'display: flex; justify-content: center;');
     this.customMediumCanvas.setAttribute('class', 'custom-medium-canvas');
-    this.customMediaSelectorDiv.appendChild(this.customMediumCanvas);
-    if (typeof window.G_vmlCanvasManager !== 'undefined') {
-      this.customMediumCanvas = window.G_vmlCanvasManager.initElement(this.customMediumCanvas);
-    }
     this.customMediumCtx = this.customMediumCanvas.getContext('2d');
 
 
