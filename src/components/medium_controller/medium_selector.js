@@ -8,13 +8,16 @@ class MediumSelector {
     this.mediumMedium = document.getElementById('medium');
     this.largeMedium = document.getElementById('large');
     this.xlargeMedium = document.getElementById('x-large');
+    this.currentBrush = document.getElementById('current-brush-canvas');
+    this.currentBrush.setAttribute('width', 60);
+    this.currentBrush.setAttribute('height', 60);
     this.customMediumCanvas = document.getElementById('custom-medium-selector-canvas');
     this.customMediumCanvas.setAttribute('width', 500);
     this.customMediumCanvas.setAttribute('height', 200);
-    // this.customMediumCanvas.setAttribute('style', 'display: flex; justify-content: center;');
     this.customMediumCanvas.setAttribute('class', 'custom-medium-canvas');
-    this.customMediumCtx = this.customMediumCanvas.getContext('2d');
 
+    this.currBrushCtx = this.currentBrush.getContext('2d');
+    this.customMediumCtx = this.customMediumCanvas.getContext('2d');
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
@@ -26,8 +29,17 @@ class MediumSelector {
     this.xlargeMedium.addEventListener('click', this.handleSizeChange);
   }
 
+  drawCurrentBrush() {
+    this.currBrushCtx.lineWidth = window.mediumSize;
+    this.currBrushCtx.strokeStyle = window.rgb;
+    this.currBrushCtx.lineCap = 'round';
+    this.currBrushCtx.lineTo(30, 30);
+    this.currBrushCtx.stroke();
+  }
+
   handleSizeChange(e) {
     e.preventDefault();
+    this.clearCanvas();
     if (e.target.value === 'x-small'){
       window.mediumSize = 1;
     } else if (e.target.value === 'small') {
@@ -39,6 +51,16 @@ class MediumSelector {
     } else if (e.target.value === 'x-large') {
       window.mediumSize = 18;
     }
+    this.drawCurrentBrush();
+  }
+
+  clearCanvas(e) {
+    this.currBrushCtx.clearRect(
+      0,
+      0,
+      this.currBrushCtx.canvas.width,
+      this.currBrushCtx.canvas.height
+    );
   }
 
   handleFileSelect(e) {

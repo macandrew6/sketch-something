@@ -1,5 +1,8 @@
+import MediumSelector from "./medium_selector";
+
 class ColorSelector {
   constructor() {
+    this.mediumSelector = new MediumSelector();
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.rgbValue = document.getElementById('rgb-value');
     this.colorCanvas = document.getElementById('color-selector-canvas-div');
@@ -49,9 +52,13 @@ class ColorSelector {
   }
 
   endColorCoords(e) {
+    this.mediumSelector.clearCanvas();
+
     e.stopPropagation();
     e.preventDefault();
     this.picking = false;
+    this.mediumSelector.drawCurrentBrush();
+
   }
 
   colorPick(e) {

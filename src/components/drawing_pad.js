@@ -9,14 +9,10 @@ class DrawingPad {
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');
-    this.currentBrush = document.getElementById('current-brush-canvas');
     this.canvas.setAttribute('width', 1200);
     this.canvas.setAttribute('height', 800);
-    this.currentBrush.setAttribute('width', 60);
-    this.currentBrush.setAttribute('height', 60);
-
+    
     this.ctx = this.canvas.getContext('2d');
-    this.currBrushCtx = this.currentBrush.getContext('2d');
 
     const background = new Image();
     background.onload = () => {
@@ -67,6 +63,7 @@ class DrawingPad {
     // have a conditional regulating if custom medium was selected run this block of code
     // have a canvas drawImage method here:
     // have the image object created by the medium selector
+    console.log(window.mediumSize);
     this.ctx.lineWidth = window.mediumSize;
     this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';
