@@ -12,6 +12,7 @@ class MediumControls {
     this.mediumSizeControls = document.getElementsByClassName("medium-size-btn-container")[0];
     this.colorSelector = document.getElementsByClassName('color-canvas')[0];
     this.closeButton = document.getElementsByClassName('close-controls-btn')[0];
+    this.currentBrush = document.getElementsByClassName('current-brush-container')[0];
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.medium = document.getElementsByClassName('medium');
     this.mediumTitle = document.getElementsByClassName('medium-title')[0];
@@ -32,6 +33,7 @@ class MediumControls {
     }
     this.mediumTitle.classList.add('hide');
     this.mediumControls.classList.add('expand');
+    this.currentBrush.classList.add('move-current-brush-container');
     this.body.setAttribute('style','background: rgba(0, 0, 0, 0.5)');
   }
 
@@ -44,6 +46,7 @@ class MediumControls {
     }
     this.mediumTitle.classList.remove('hide');
     this.mediumControls.classList.remove('expand');
+    this.currentBrush.classList.remove('move-current-brush-container');
     this.body.removeAttribute('style');
   }
 
