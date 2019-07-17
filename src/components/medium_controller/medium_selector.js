@@ -4,10 +4,12 @@ class MediumSelector {
     // this.currentMedium = new Image();
 
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
+    this.xsmallMedium = document.getElementById('x-small');
     this.smallMedium = document.getElementById('small');
     this.mediumMedium = document.getElementById('medium');
     this.largeMedium = document.getElementById('large');
     this.xlargeMedium = document.getElementById('x-large');
+    this.xxlargeMedium = document.getElementById('xx-large');
     this.currentBrush = document.getElementById('current-brush-canvas');
     this.currentBrush.setAttribute('width', 60);
     this.currentBrush.setAttribute('height', 60);
@@ -23,10 +25,12 @@ class MediumSelector {
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
     this.fileChooser.addEventListener('change', this.handleFileSelect, false);
+    this.xsmallMedium.addEventListener('click', this.handleSizeChange);
     this.smallMedium.addEventListener('click', this.handleSizeChange);
     this.mediumMedium.addEventListener('click', this.handleSizeChange);
     this.largeMedium.addEventListener('click', this.handleSizeChange);
     this.xlargeMedium.addEventListener('click', this.handleSizeChange);
+    this.xxlargeMedium.addEventListener('click', this.handleSizeChange);
   }
 
   drawCurrentBrush() {
@@ -40,7 +44,7 @@ class MediumSelector {
   handleSizeChange(e) {
     e.preventDefault();
     this.clearCanvas();
-    if (e.target.value === 'x-small'){
+    if (e.target.value === 'x-small') {
       window.mediumSize = 1;
     } else if (e.target.value === 'small') {
       window.mediumSize = 3;
@@ -50,6 +54,8 @@ class MediumSelector {
       window.mediumSize = 11;
     } else if (e.target.value === 'x-large') {
       window.mediumSize = 18;
+    } else if (e.target.value === 'xx-large') {
+      window.mediumSize = 25;
     }
     this.drawCurrentBrush();
   }
@@ -80,7 +86,6 @@ class MediumSelector {
 
   loadAndDrawImage(imageURL) {
     return e => {
-      // e.stopPropagation();
       const newMedium = new Image();
       newMedium.src = imageURL;
       newMedium.onload = () => {

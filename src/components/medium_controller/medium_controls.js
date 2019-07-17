@@ -26,7 +26,6 @@ class MediumControls {
 
   expandControls(e) {
     e.stopPropagation();
-
     this.closeButton.classList.add('show');
     for (let i = 0; i < this.medium.length; i++) {
       this.medium[i].classList.add('show');
@@ -39,7 +38,6 @@ class MediumControls {
 
   closeControls(e) {
     e.stopPropagation();
-    
     this.closeButton.classList.remove('show');
     for (let i = 0; i < this.medium.length; i++) {
       this.medium[i].classList.remove('show');
