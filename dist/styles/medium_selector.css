@@ -20,6 +20,7 @@
 .current-brush-container {
   position: relative;
   border: 1px solid white;
+  margin-left: 25px;
   font-size: 15px;
   width: 121px;
   height: 120px;
@@ -31,7 +32,7 @@
 }
 
 .move-current-brush-container {
-  top: 56px;
+  top: 64px;
 }
 
 #current-brush-canvas {
@@ -137,7 +138,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 170px;
   margin-top: 35px;
 }
 
@@ -149,6 +150,7 @@
   border: none;
   border-radius: 5px;
   margin-bottom: 9px;
+  margin-right: 1px;
   width: 80px;
   background: #fcf4eb;
   box-shadow: 0 6px #999;

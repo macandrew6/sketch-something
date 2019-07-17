@@ -13,19 +13,8 @@ class DrawingPad {
     this.canvas.setAttribute('height', 800);
     
     this.ctx = this.canvas.getContext('2d');
-
-    const background = new Image();
-    background.onload = () => {
-      this.ctx.drawImage(
-        background, 
-        0, 
-        0, 
-        this.canvas.width, 
-        this.canvas.height
-      );
-    };
-    background.src = '/dist/images/164077250-blackboard-wallpapers.jpg';
-
+    
+    this.drawBackgroundImage();
     this.painting = false;
     this.startPosition = this.startPosition.bind(this);
     this.endPosition = this.endPosition.bind(this);
@@ -37,6 +26,20 @@ class DrawingPad {
     this.canvas.addEventListener("mousemove", this.draw);
     this.saveButton.addEventListener('click', this.save);
     this.clearButton.addEventListener('click', this.clearCanvas);
+  }
+
+  drawBackgroundImage() {
+    const background = new Image();
+    background.onload = () => {
+      this.ctx.drawImage(
+        background,
+        0,
+        0,
+        this.canvas.width,
+        this.canvas.height
+      );
+    };
+    background.src = '/dist/images/164077250-blackboard-wallpapers.jpg';
   }
 
   startPosition(e) {
@@ -56,6 +59,7 @@ class DrawingPad {
       this.ctx.canvas.width, 
       this.ctx.canvas.height
     );
+    this.drawBackgroundImage();
   }
 
   draw(e) {
