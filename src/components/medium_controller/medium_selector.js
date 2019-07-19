@@ -1,7 +1,7 @@
 class MediumSelector {
   constructor() {
     // have a value for custom medium
-    this.currentCustomMedium = undefined;
+    this.currentCustomMedium;
 
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.xsmallMedium = document.getElementById('x-small');
@@ -25,6 +25,7 @@ class MediumSelector {
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
+    this.currentMediumState = this.currentMediumState.bind(this);
     this.fileChooser.addEventListener('change', this.handleFileSelect, false);
     this.xsmallMedium.addEventListener('click', this.handleSizeChange);
     this.smallMedium.addEventListener('click', this.handleSizeChange);
@@ -43,8 +44,8 @@ class MediumSelector {
   }
 
   currentMediumState() {
-    if (!this.currentCustomMedium) return;
-    console.log(this.currentCustomMedium);
+    // console.log('im here baby')
+    if (this.currentCustomMedium === undefined) return;
     const selectedCustomMedium = this.currentCustomMedium;
     selectedCustomMedium.onload = () => {
       this.currBrushCtx.drawImage(
@@ -98,6 +99,8 @@ class MediumSelector {
     let imageURL = window.URL.createObjectURL(file);
     
     this.currentCustomMedium = this.loadAndDrawImage(imageURL)();
+    console.log(this.currentCustomMedium);
+    this.currentMediumState();
   }
 
   loadAndDrawImage(imageURL) {
