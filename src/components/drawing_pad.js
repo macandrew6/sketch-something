@@ -13,7 +13,7 @@ class DrawingPad {
     this.canvas.setAttribute('height', 800);
     
     this.ctx = this.canvas.getContext('2d');
-    
+
     this.drawBackgroundImage();
     this.painting = false;
     this.startPosition = this.startPosition.bind(this);
@@ -67,7 +67,6 @@ class DrawingPad {
     // have a conditional regulating if custom medium was selected run this block of code
     // have a canvas drawImage method here:
     // have the image object created by the medium selector
-    console.log(window.mediumSize);
     this.ctx.lineWidth = window.mediumSize;
     this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';
@@ -80,7 +79,7 @@ class DrawingPad {
   save(e) {
     const savedCanvas = this.canvas.toDataURL('image/png');
     const link = document.createElement('a');
-    link.setAttribute('download', 'exmple.png');
+    link.setAttribute('download', 'draw-that-thing.png');
     link.setAttribute('href', savedCanvas);
     link.click();
   }

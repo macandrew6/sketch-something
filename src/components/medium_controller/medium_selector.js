@@ -1,7 +1,7 @@
 class MediumSelector {
   constructor() {
     // have a value for custom medium
-    // this.currentMedium = new Image();
+    this.currentCustomMedium = undefined;
 
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.xsmallMedium = document.getElementById('x-small');
@@ -17,6 +17,7 @@ class MediumSelector {
     this.customMediumCanvas.setAttribute('width', 500);
     this.customMediumCanvas.setAttribute('height', 200);
     this.customMediumCanvas.setAttribute('class', 'custom-medium-canvas');
+    // divide custom medium canvas into 10 different cells
 
     this.currBrushCtx = this.currentBrush.getContext('2d');
     this.customMediumCtx = this.customMediumCanvas.getContext('2d');
@@ -39,6 +40,21 @@ class MediumSelector {
     this.currBrushCtx.lineCap = 'round';
     this.currBrushCtx.lineTo(30, 30);
     this.currBrushCtx.stroke();
+  }
+
+  currentMediumState() {
+    if (!this.currentCustomMedium) return;
+    console.log(this.currentCustomMedium);
+    const selectedCustomMedium = this.currentCustomMedium;
+    selectedCustomMedium.onload = () => {
+      this.currBrushCtx.drawImage(
+        selectedCustomMedium,
+        0,
+        0,
+        this.currentBrush.width,
+        this.currentBrush.height
+      );
+    };
   }
 
   handleSizeChange(e) {
@@ -81,7 +97,7 @@ class MediumSelector {
 
     let imageURL = window.URL.createObjectURL(file);
     
-    this.loadAndDrawImage(imageURL)();
+    this.currentCustomMedium = this.loadAndDrawImage(imageURL)();
   }
 
   loadAndDrawImage(imageURL) {
