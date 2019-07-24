@@ -44,9 +44,12 @@ class MediumSelector {
   }
 
   currentMediumState() {
-    // console.log('im here baby')
+    console.log('im here baby');
+    // console.log('currentCustomMedium, ', this.currentCustomMedium);
+
     if (this.currentCustomMedium === undefined) return;
     const selectedCustomMedium = this.currentCustomMedium;
+
     selectedCustomMedium.onload = () => {
       this.currBrushCtx.drawImage(
         selectedCustomMedium,
@@ -98,8 +101,9 @@ class MediumSelector {
 
     let imageURL = window.URL.createObjectURL(file);
     
-    this.currentCustomMedium = this.loadAndDrawImage(imageURL)();
-    console.log(this.currentCustomMedium);
+    // console.log(this.loadAndDrawImage(imageURL));
+    this.currentCustomMedium = this.loadAndDrawImage(imageURL);
+    this.currentCustomMedium();
     this.currentMediumState();
   }
 
