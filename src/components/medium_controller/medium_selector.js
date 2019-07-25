@@ -22,6 +22,9 @@ class MediumSelector {
     this.currBrushCtx = this.currentBrush.getContext('2d');
     this.customMediumCtx = this.customMediumCanvas.getContext('2d');
 
+    this.mediumSize = 1;
+    this._customMediumImages = [];
+
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
@@ -102,9 +105,26 @@ class MediumSelector {
     let imageURL = window.URL.createObjectURL(file);
     
     // console.log(this.loadAndDrawImage(imageURL));
+    this.createImageSelectButton(imageURL);
     this.currentCustomMedium = this.loadAndDrawImage(imageURL);
+
     this.currentCustomMedium();
     this.currentMediumState();
+  }
+
+  createImageSelectButton(imageDataURL) {
+    const image = document.createElement('img');
+    image.src = imageDataURL;
+    // append to custom medium grid instead of body
+    image.classList.add('custom-medium-select-button');
+    document.body.appendChild(image);
+    let imageIndex = this._customMediumImages.length;
+    this._customMediumImages.push(image);
+  
+    image.addEventListener('click', () => {
+      debugger;
+      this.currentCustomeMediumImage = this._customMediumImages[imageIndex];
+    });
   }
 
   loadAndDrawImage(imageURL) {

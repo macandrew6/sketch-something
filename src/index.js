@@ -3,6 +3,6 @@ import MediumControls from './components/medium_controller/medium_controls';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  new DrawingPad();
-  new MediumControls();
+  let mediumControls = new MediumControls();
+  new DrawingPad(mediumControls);
 });

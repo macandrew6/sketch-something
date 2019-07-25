@@ -2,9 +2,10 @@ import '../../dist/styles/drawing_pad.css';
 import MediumSelector from './medium_controller/medium_selector';
 
 class DrawingPad {
-  constructor() {
+  constructor(mediumControls) {
     //include access to medium selector
     // new MediumSelector(); 
+    this.mediumSelector = mediumControls.mediumSelector;
 
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
@@ -70,10 +71,21 @@ class DrawingPad {
     this.ctx.lineWidth = window.mediumSize;
     this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';
-    this.ctx.lineTo(e.offsetX, e.offsetY);
-    this.ctx.stroke();
-    this.ctx.beginPath();
-    this.ctx.moveTo(e.offsetX, e.offsetY);
+
+    if(this.mediumSelector.currentCustomMediumImage) {
+      this.ctx.drawImage(
+        this.mediumSelector.currentCustomMediumImage, 
+        e.offsetX,
+        e.offsetY,
+        100,
+        100
+      );
+    } else {
+      this.ctx.lineTo(e.offsetX, e.offsetY);
+      this.ctx.stroke();
+      this.ctx.beginPath();
+      this.ctx.moveTo(e.offsetX, e.offsetY);
+    }
   }
 
   save(e) {
