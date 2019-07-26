@@ -1,7 +1,7 @@
 class MediumSelector {
   constructor() {
     // have a value for custom medium
-    
+
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.xsmallMedium = document.getElementById('x-small');
     this.smallMedium = document.getElementById('small');
@@ -32,12 +32,23 @@ class MediumSelector {
     this.xxlargeMedium.addEventListener('click', this.handleSizeChange);
   }
 
-  drawCurrentBrush() {
-    this.currBrushCtx.lineWidth = window.mediumSize;
-    this.currBrushCtx.strokeStyle = window.rgb;
-    this.currBrushCtx.lineCap = 'round';
-    this.currBrushCtx.lineTo(30, 30);
-    this.currBrushCtx.stroke();
+  drawCurrentBrush(e) {
+    console.log(this.currentCustomMediumImage);
+    if (this.currentCustomMediumImage) {
+      this.currBrushCtx.drawImage(
+        this.currentCustomMediumImage,
+        5,
+        5,
+        50,
+        50
+      );
+    } else {
+      this.currBrushCtx.lineWidth = window.mediumSize;
+      this.currBrushCtx.strokeStyle = window.rgb;
+      this.currBrushCtx.lineCap = 'round';
+      this.currBrushCtx.lineTo(30, 30);
+      this.currBrushCtx.stroke();
+    }
   }
 
   currentMediumState() {
@@ -109,7 +120,8 @@ class MediumSelector {
     image.addEventListener('click', () => {
       console.log('image being clicked');
       debugger;
-      this.currentCustomeMediumImage = this._customMediumImages[imageIndex];
+      this.currentCustomMediumImage = this._customMediumImages[imageIndex];
+      this.drawCurrentBrush();
     });
   }
 

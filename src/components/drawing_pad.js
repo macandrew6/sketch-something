@@ -4,9 +4,8 @@ import MediumSelector from './medium_controller/medium_selector';
 class DrawingPad {
   constructor(mediumControls) {
     //include access to medium selector
-    // new MediumSelector(); 
     this.mediumSelector = mediumControls.mediumSelector;
-
+    
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');

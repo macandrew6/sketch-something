@@ -6,6 +6,7 @@ class MediumControls {
   constructor() {
     this.colorSelector = new ColorSelector();
     this.mediumSelector = new MediumSelector();
+    console.log('i\'ve run once');
 
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.customMediaCanvas = document.getElementsByClassName('custom-medium-canvas')[0];
