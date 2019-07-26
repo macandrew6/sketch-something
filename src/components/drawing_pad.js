@@ -5,7 +5,7 @@ class DrawingPad {
   constructor(mediumControls) {
     //include access to medium selector
     this.mediumSelector = mediumControls.mediumSelector;
-    
+
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
     this.clearButton = document.getElementById('clear-button');
@@ -74,8 +74,8 @@ class DrawingPad {
     if(this.mediumSelector.currentCustomMediumImage) {
       this.ctx.drawImage(
         this.mediumSelector.currentCustomMediumImage, 
-        e.offsetX,
-        e.offsetY,
+        e.offsetX - 25,
+        e.offsetY - 25,
         50,
         50
       );
