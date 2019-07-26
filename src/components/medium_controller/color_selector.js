@@ -1,8 +1,6 @@
-import MediumSelector from "./medium_selector";
-
 class ColorSelector {
-  constructor() {
-    this.mediumSelector = new MediumSelector();
+  constructor(mediumSelector) {
+    this.mediumSelector = mediumSelector;
 
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.rgbValue = document.getElementById('rgb-value');

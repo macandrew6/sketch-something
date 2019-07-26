@@ -1,9 +1,7 @@
 import '../../dist/styles/drawing_pad.css';
-import MediumSelector from './medium_controller/medium_selector';
 
 class DrawingPad {
   constructor(mediumControls) {
-    //include access to medium selector
     this.mediumSelector = mediumControls.mediumSelector;
 
     this.canvas = document.getElementById('canvas');
@@ -67,6 +65,10 @@ class DrawingPad {
     // have a conditional regulating if custom medium was selected run this block of code
     // have a canvas drawImage method here:
     // have the image object created by the medium selector
+
+    // remember previous position
+    // find the angle between the two points cosine of sine
+    // 
     this.ctx.lineWidth = window.mediumSize;
     this.ctx.strokeStyle = window.rgb;
     this.ctx.lineCap = 'round';

@@ -1,7 +1,5 @@
 class MediumSelector {
   constructor() {
-    // have a value for custom medium
-
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.xsmallMedium = document.getElementById('x-small');
     this.smallMedium = document.getElementById('small');
@@ -12,7 +10,6 @@ class MediumSelector {
     this.currentBrush = document.getElementById('current-brush-canvas');
     this.currentBrush.setAttribute('width', 60);
     this.currentBrush.setAttribute('height', 60);
-    // divide custom medium canvas into 10 different cells
 
     this.currBrushCtx = this.currentBrush.getContext('2d');
 
@@ -22,7 +19,6 @@ class MediumSelector {
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
-    this.currentMediumState = this.currentMediumState.bind(this);
     this.fileChooser.addEventListener('change', this.handleFileSelect);
     this.xsmallMedium.addEventListener('click', this.handleSizeChange);
     this.smallMedium.addEventListener('click', this.handleSizeChange);
@@ -49,21 +45,6 @@ class MediumSelector {
       this.currBrushCtx.lineTo(30, 30);
       this.currBrushCtx.stroke();
     }
-  }
-
-  currentMediumState() {
-    if (this.currentCustomMedium === undefined) return;
-    const selectedCustomMedium = this.currentCustomMedium;
-
-    selectedCustomMedium.onload = () => {
-      this.currBrushCtx.drawImage(
-        selectedCustomMedium,
-        0,
-        0,
-        this.currentBrush.width,
-        this.currentBrush.height
-      );
-    };
   }
 
   handleSizeChange(e) {
@@ -103,23 +84,18 @@ class MediumSelector {
     window.URL = window.URL || window.webkitURL;
 
     let imageURL = window.URL.createObjectURL(file);
-    console.log('hey im being envoked twice?');
     this.createImageSelectButton(imageURL);
   }
 
   createImageSelectButton(imageDataURL) {
     const image = document.createElement('img');
     image.src = imageDataURL;
-    // append to custom medium grid instead of body
     image.classList.add('custom-medium-select-button');
     document.getElementById('custom-medium-selector-div').appendChild(image);
     let imageIndex = this._customMediumImages.length;
     this._customMediumImages.push(image);
-  
-    console.log('inside createImageSelectButton', image);
+    
     image.addEventListener('click', () => {
-      console.log('image being clicked');
-      debugger;
       this.currentCustomMediumImage = this._customMediumImages[imageIndex];
       this.drawCurrentBrush();
     });
