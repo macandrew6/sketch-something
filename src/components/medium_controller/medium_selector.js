@@ -1,8 +1,7 @@
 class MediumSelector {
   constructor() {
     // have a value for custom medium
-    this.currentCustomMedium;
-
+    
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.xsmallMedium = document.getElementById('x-small');
     this.smallMedium = document.getElementById('small');
@@ -24,7 +23,7 @@ class MediumSelector {
     this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
     this.currentMediumState = this.currentMediumState.bind(this);
-    this.fileChooser.addEventListener('change', this.handleFileSelect, false);
+    this.fileChooser.addEventListener('change', this.handleFileSelect);
     this.xsmallMedium.addEventListener('click', this.handleSizeChange);
     this.smallMedium.addEventListener('click', this.handleSizeChange);
     this.mediumMedium.addEventListener('click', this.handleSizeChange);
@@ -85,8 +84,6 @@ class MediumSelector {
   }
 
   handleFileSelect(e) {
-    e.stopPropagation();
-    e.preventDefault();
     let files = e.target.files;
     if (!files.length) return;
     let file = files[0];
@@ -95,10 +92,8 @@ class MediumSelector {
     window.URL = window.URL || window.webkitURL;
 
     let imageURL = window.URL.createObjectURL(file);
-    
-    // console.log(this.loadAndDrawImage(imageURL));
+    console.log('hey im being envoked twice?');
     this.createImageSelectButton(imageURL);
-    this.currentCustomMedium = this.loadAndDrawImage(imageURL);
   }
 
   createImageSelectButton(imageDataURL) {
