@@ -17,7 +17,6 @@ class MediumSelector {
     this._customMediumImages = [];
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
-    this.loadAndDrawImage = this.loadAndDrawImage.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
     this.fileChooser.addEventListener('change', this.handleFileSelect);
     this.xsmallMedium.addEventListener('click', this.handleSizeChange);
@@ -99,22 +98,6 @@ class MediumSelector {
       this.currentCustomMediumImage = this._customMediumImages[imageIndex];
       this.drawCurrentBrush();
     });
-  }
-
-  loadAndDrawImage(imageURL) {
-    return e => {
-      const newMedium = new Image();
-      newMedium.src = imageURL;
-      newMedium.onload = () => {
-        this.customMediumCtx.drawImage(
-          newMedium,
-          0, 
-          0, 
-          50,
-          50
-        );
-      };
-    };
   }
 }
 
