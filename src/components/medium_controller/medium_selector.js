@@ -58,13 +58,14 @@ class MediumSelector {
   }
 
   handleLineCap(e) {
-    console.log('im here baby', this.lineCap)
+    console.log('im here baby', e.target.classList[1]);
     e.preventDefault();
-    if(e.target.value === 'square') {
+    if (e.target.classList[1] === 'square') {
       this.lineCap = 'square';
-    } else if(e.target.value === 'round') {
+    } else if (e.target.classList[1] === 'round') {
       this.lineCap = 'round';
     }
+    this.drawCurrentBrush();
   }
 
   drawCurrentBrush(e) {

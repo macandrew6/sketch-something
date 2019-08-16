@@ -72,7 +72,7 @@ class DrawingPad {
     // 
     this.ctx.lineWidth = this.mediumSelector.mediumSize;
     this.ctx.strokeStyle = this.colorSelector.rgb;
-    this.ctx.lineCap = 'round';
+    this.ctx.lineCap = this.mediumSelector.lineCap;
 
     if(this.mediumSelector.currentCustomMediumImage) {
       this.ctx.drawImage(
