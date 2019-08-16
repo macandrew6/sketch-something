@@ -79,8 +79,8 @@ class DrawingPad {
         this.mediumSelector.currentCustomMediumImage, 
         e.offsetX - 25,
         e.offsetY - 25,
-        50,
-        50
+        50 * (1/2 * this.mediumSelector.mediumSize),
+        50 * (1/2 * this.mediumSelector.mediumSize)
       );
     } else {
       this.ctx.lineTo(e.offsetX, e.offsetY);
