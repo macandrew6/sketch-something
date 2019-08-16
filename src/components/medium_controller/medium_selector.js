@@ -29,6 +29,7 @@ class MediumSelector {
     this.lineCap = 'round';
     this._customMediumImages = [];
 
+    this.drawCurrentBrush();
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
     this.handleLineCap = this.handleLineCap.bind(this);
@@ -58,13 +59,20 @@ class MediumSelector {
   }
 
   handleLineCap(e) {
-    console.log('im here baby', e.target.classList[1]);
+    console.log('im here baby', e.currentTarget);
     e.preventDefault();
+    let buttons = document.querySelectorAll('.higlightable');
+    buttons.forEach(button => {
+      button.classList.remove('custom-medium-selected');
+    });
     if (e.target.classList[1] === 'square') {
       this.lineCap = 'square';
     } else if (e.target.classList[1] === 'round') {
       this.lineCap = 'round';
     }
+    e.currentTarget.classList.add('custom-medium-selected');
+    
+    
     this.clearCanvas();
     this.currentCustomMediumImage = undefined;
     this.drawCurrentBrush();
@@ -132,16 +140,21 @@ class MediumSelector {
     const image = document.createElement('img');
     image.src = imageDataURL;
     image.classList.add('custom-medium-select-button');
+    image.classList.add('higlightable');
     document.getElementById('custom-medium-selector-div').appendChild(image);
     let imageIndex = this._customMediumImages.length;
     this._customMediumImages.push(image);
     
     image.addEventListener('click', () => {
+      let buttons = document.querySelectorAll('.higlightable');
+      buttons.forEach(button => {
+        button.classList.remove('custom-medium-selected');
+      });
       image.classList.add('custom-medium-selected');
+      console.log(this._customMediumImages[imageIndex]);
       this.currentCustomMediumImage = this._customMediumImages[imageIndex];
       this.drawCurrentBrush();
     });
-    image.classList.remove('custom-medium-selected');
   }
 }
 
