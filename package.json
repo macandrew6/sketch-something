@@ -1,5 +1,5 @@
 {
-  "name": "pictionary",
+  "name": "draw-that-thing",
   "version": "1.0.0",
   "description": "a drawing app with friends",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/macandrew6/pictionary.git"
+    "url": "git+https://github.com/macandrew6/draw-that-thing.git"
   },
   "author": "Andrew Mac",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/macandrew6/pictionary/issues"
+    "url": "https://github.com/macandrew6/draw-that-thing/issues"
   },
-  "homepage": "https://github.com/macandrew6/pictionary#readme",
+  "homepage": "https://github.com/macandrew6/draw-that-thing#readme",
   "dependencies": {
     "css-loader": "^2.1.1",
     "express": "^4.17.0",
