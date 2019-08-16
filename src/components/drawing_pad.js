@@ -3,6 +3,7 @@ import '../../dist/styles/drawing_pad.css';
 class DrawingPad {
   constructor(mediumControls) {
     this.mediumSelector = mediumControls.mediumSelector;
+    this.colorSelector = mediumControls.colorSelector;
 
     this.canvas = document.getElementById('canvas');
     this.saveButton = document.getElementById('save-button');
@@ -69,8 +70,8 @@ class DrawingPad {
     // remember previous position
     // find the angle between the two points cosine of sine
     // 
-    this.ctx.lineWidth = window.mediumSize;
-    this.ctx.strokeStyle = window.rgb;
+    this.ctx.lineWidth = this.mediumSelector.mediumSize;
+    this.ctx.strokeStyle = this.colorSelector.rgb;
     this.ctx.lineCap = 'round';
 
     if(this.mediumSelector.currentCustomMediumImage) {

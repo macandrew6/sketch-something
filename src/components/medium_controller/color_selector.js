@@ -7,6 +7,8 @@ class ColorSelector {
     this.colorCanvas = document.getElementById('color-selector-canvas-div');
     this.colorCtx = this.colorCanvas.getContext('2d');
     this.picking = false;
+    
+    this.rgb = undefined;
 
     this.buildColorPalette();
     this.startColorCoords = this.startColorCoords.bind(this);
@@ -57,7 +59,6 @@ class ColorSelector {
     e.preventDefault();
     this.picking = false;
     this.mediumSelector.drawCurrentBrush();
-
   }
 
   colorPick(e) {
@@ -65,11 +66,12 @@ class ColorSelector {
     let x = event.layerX;
     let y = event.layerY;
     let pixel = this.colorCtx.getImageData(x, y, 1, 1);
-    window.rgb = 'rgb(' + pixel.data[0] + ', ' + pixel.data[1] +
+    this.rgb = 'rgb(' + pixel.data[0] + ', ' + pixel.data[1] +
       ', ' + pixel.data[2] + ')';
-    this.mediumControls.setAttribute('style', `box-shadow: 0px 0px 30px 10px ${window.rgb} inset;`);
-    this.rgbValue.style.background = window.rgb;
-    this.rgbValue.textContent = window.rgb;
+    this.mediumControls.setAttribute('style', `box-shadow: 0px 0px 30px 10px ${this.rgb} inset;`);
+    this.rgbValue.style.background = this.rgb;
+    this.rgbValue.textContent = this.rgb;
+    this.mediumSelector.rgb = this.rgb;
   }
 }
 

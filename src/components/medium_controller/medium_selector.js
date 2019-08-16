@@ -1,5 +1,7 @@
 class MediumSelector {
   constructor() {
+    this.roundMedium = document.getElementsByClassName('standard-medium round')[0];
+    this.squareMedium = document.getElementsByClassName('standard-medium square')[0];
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];
     this.xsmallMedium = document.getElementById('x-small');
     this.smallMedium = document.getElementById('small');
@@ -13,12 +15,26 @@ class MediumSelector {
 
     this.currBrushCtx = this.currentBrush.getContext('2d');
 
-    this.mediumSize = 1;
+    this.roundMediumCtx = this.roundMedium.getContext('2d');
+    this.roundMedium.setAttribute('width', 30);
+    this.roundMedium.setAttribute('height', 30);
+    this.squareMediumCtx = this.squareMedium.getContext('2d');
+    this.squareMedium.setAttribute('width', 30);
+    this.squareMedium.setAttribute('height', 30);
+    this.drawRoundMedium();
+    this.drawSquareMedium();
+
+    this.mediumSize = 2;
+    this.rgb = 'rgb(0, 0, 0)';
+    this.lineCap = 'round';
     this._customMediumImages = [];
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
+    this.handleLineCap = this.handleLineCap.bind(this);
     this.fileChooser.addEventListener('change', this.handleFileSelect);
+    this.roundMedium.addEventListener('click', this.handleLineCap);
+    this.squareMedium.addEventListener('click', this.handleLineCap);
     this.xsmallMedium.addEventListener('click', this.handleSizeChange);
     this.smallMedium.addEventListener('click', this.handleSizeChange);
     this.mediumMedium.addEventListener('click', this.handleSizeChange);
@@ -27,8 +43,31 @@ class MediumSelector {
     this.xxlargeMedium.addEventListener('click', this.handleSizeChange);
   }
 
+  drawRoundMedium() {
+    this.roundMediumCtx.lineWidth = 10;
+    this.roundMediumCtx.lineCap = 'round';
+    this.roundMediumCtx.lineTo(15, 15);
+    this.roundMediumCtx.stroke();
+  }
+
+  drawSquareMedium() {
+    this.squareMediumCtx.lineWidth = 10;
+    this.squareMediumCtx.lineCap = 'square';
+    this.squareMediumCtx.lineTo(15, 15);
+    this.squareMediumCtx.stroke();
+  }
+
+  handleLineCap(e) {
+    console.log('im here baby', this.lineCap)
+    e.preventDefault();
+    if(e.target.value === 'square') {
+      this.lineCap = 'square';
+    } else if(e.target.value === 'round') {
+      this.lineCap = 'round';
+    }
+  }
+
   drawCurrentBrush(e) {
-    console.log(this.currentCustomMediumImage);
     if (this.currentCustomMediumImage) {
       this.currBrushCtx.drawImage(
         this.currentCustomMediumImage,
@@ -38,9 +77,9 @@ class MediumSelector {
         50
       );
     } else {
-      this.currBrushCtx.lineWidth = window.mediumSize;
-      this.currBrushCtx.strokeStyle = window.rgb;
-      this.currBrushCtx.lineCap = 'round';
+      this.currBrushCtx.lineWidth = this.mediumSize;
+      this.currBrushCtx.strokeStyle = this.rgb;
+      this.currBrushCtx.lineCap = this.lineCap;
       this.currBrushCtx.lineTo(30, 30);
       this.currBrushCtx.stroke();
     }
@@ -50,17 +89,17 @@ class MediumSelector {
     e.preventDefault();
     this.clearCanvas();
     if (e.target.value === 'x-small') {
-      window.mediumSize = 1;
+      this.mediumSize = 2;
     } else if (e.target.value === 'small') {
-      window.mediumSize = 3;
+      this.mediumSize = 3;
     } else if (e.target.value === 'medium') {
-      window.mediumSize = 7;
+      this.mediumSize = 7;
     } else if (e.target.value === 'large') {
-      window.mediumSize = 11;
+      this.mediumSize = 11;
     } else if (e.target.value === 'x-large') {
-      window.mediumSize = 18;
+      this.mediumSize = 18;
     } else if (e.target.value === 'xx-large') {
-      window.mediumSize = 25;
+      this.mediumSize = 25;
     }
     this.drawCurrentBrush();
   }
@@ -95,9 +134,11 @@ class MediumSelector {
     this._customMediumImages.push(image);
     
     image.addEventListener('click', () => {
+      image.classList.add('custom-medium-selected');
       this.currentCustomMediumImage = this._customMediumImages[imageIndex];
       this.drawCurrentBrush();
     });
+    image.classList.remove('custom-medium-selected');
   }
 }
 

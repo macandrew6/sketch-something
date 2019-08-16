@@ -7,7 +7,7 @@ import CurrentBrush from './components/medium_controller/current_brush';
 document.addEventListener('DOMContentLoaded', () => {
   let mediumSelector = new MediumSelector();
   let colorSelector = new ColorSelector(mediumSelector);
-  let currentBrush = new CurrentBrush();
-  let mediumControls = new MediumControls(mediumSelector, colorSelector, currentBrush);
+  // let currentBrush = new CurrentBrush();
+  let mediumControls = new MediumControls(mediumSelector, colorSelector);
   new DrawingPad(mediumControls);
 });

@@ -2,13 +2,12 @@ import '../../../dist/styles/medium_selector.css';
 
 class MediumControls {
   constructor(mediumSelector, colorSelector) {
-    this.colorSelector = colorSelector;
     this.mediumSelector = mediumSelector;
+    this.colorSelector = colorSelector;
 
     this.mediumControls = document.getElementsByClassName('medium-controls-container')[0];
     this.customMediaCanvas = document.getElementsByClassName('custom-medium-canvas')[0];
     this.mediumSizeControls = document.getElementsByClassName("medium-size-btn-container")[0];
-    this.colorSelector = document.getElementsByClassName('color-canvas')[0];
     this.closeButton = document.getElementsByClassName('close-controls-btn')[0];
     this.currentBrush = document.getElementsByClassName('current-brush-container')[0];
     this.fileChooser = document.getElementsByClassName('file-chooser')[0];

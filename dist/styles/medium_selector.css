@@ -109,6 +109,17 @@
 
 /* custom medium selector */
 
+.standard-medium-selection {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+
+.standard-medium {
+  background: whitesmoke;
+  border: 1px solid black;
+}
+
 .file-chooser {
   display: flex;
   background: none;
@@ -128,6 +139,10 @@
   width: 50px;
   height: 50px;
   margin-bottom: 5px;
+}
+
+.custom-medium-selected {
+  box-shadow: 5px 5px white;
 }
 
 /* medium size */
