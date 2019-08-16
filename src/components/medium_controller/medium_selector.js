@@ -65,6 +65,8 @@ class MediumSelector {
     } else if (e.target.classList[1] === 'round') {
       this.lineCap = 'round';
     }
+    this.clearCanvas();
+    this.currentCustomMediumImage = undefined;
     this.drawCurrentBrush();
   }
 
