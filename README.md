@@ -1,6 +1,6 @@
 ## Chalkboard-Pictionary
 
-Link to [Live Site](https://draw-that-thing.herokuapp.com/#/)
+Link to [Live Site](https://sketch-something.herokuapp.com/#/)
 
 * Background and Overview
     * Motivation for project
